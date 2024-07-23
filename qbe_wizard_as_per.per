@@ -1,0 +1,37 @@
+LAYOUT (TEXT="QBE Wizard")
+HBOX 
+GRID
+{
+Criteria [f01      ]
+}
+END
+GRID grd_one (HIDDEN)
+{
+[f11       ]
+}
+END
+GRID grd_range (HIDDEN)
+{
+[f21       ][f22       ]
+}
+END
+TABLE grd_many (HIDDEN)
+{
+[f31       ]
+}
+END
+#TODO add container for complex criteria
+END #HBOX
+END #LAYOUT
+ATTRIBUTES
+COMBOBOX f01 = formonly.criteria, INITIALIZER=qbe_wizard.populate_criteria;  #TODO consider making this a radiogroup
+
+#TODO consider changing these to use same datatype as calling program
+#TODO consider changing these to use same field as calling program
+EDIT f11 = formonly.one, SCROLL, PLACEHOLDER="Enter value";
+EDIT f21 = formonly.from, SCROLL, PLACEHOLDER="Enter minimum value";
+EDIT f22 = formonly.to, SCROLL, PLACEHOLDER="Enter maximum value";
+EDIT f31 = formonly.many, SCROLL;
+
+INSTRUCTIONS
+SCREEN RECORD scr(many)

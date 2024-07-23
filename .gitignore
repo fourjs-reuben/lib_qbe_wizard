@@ -4,4 +4,5 @@ bin
 *.4pwvs
 *.4pwcfg
 *.4pdb
+*.sch
 .DS_Store

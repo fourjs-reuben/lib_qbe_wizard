@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm databaseName="day2db" fileVersion="40100" gstVersion="50001" name="managedform" uid="{846c3047-aefc-494e-bb12-adf4a0a08c2c}">
+  <AGSettings>
+    <DynamicProperties version="4"/>
+  </AGSettings>
+  <Record masterTable="person" name="record1" uid="{b9b4d8e4-0171-4ccc-a18b-285e29fdf1c6}">
+    <RecordField colName="id" fieldIdRef="1" fieldType="TABLE_COLUMN" name="person.id" sqlTabName="person" uid="{53ffc9af-b185-4143-8ce7-504b9b439024}"/>
+    <RecordField colName="first_name" fieldIdRef="2" fieldType="TABLE_COLUMN" name="person.first_name" sqlTabName="person" uid="{5e7628c9-cc32-4e0c-9eef-533ed63e18e3}"/>
+    <RecordField colName="last_name" fieldIdRef="3" fieldType="TABLE_COLUMN" name="person.last_name" sqlTabName="person" uid="{ec42f8dc-b319-4ac2-b8f9-1ae83d8a68e6}"/>
+    <RecordField colName="alive" fieldIdRef="4" fieldType="TABLE_COLUMN" name="person.alive" sqlTabName="person" uid="{d9cb19cd-26d5-41c2-b83d-b49a8b5fb42e}"/>
+    <RecordField colName="birthdate" fieldIdRef="5" fieldType="TABLE_COLUMN" name="person.birthdate" sqlTabName="person" uid="{6ea10c07-a34c-4024-b781-7f177ed5b721}"/>
+    <RecordField colName="height_in_inches" fieldIdRef="6" fieldType="TABLE_COLUMN" name="person.height_in_inches" sqlTabName="person" uid="{fd87a692-6d78-4b0c-8b22-128171e9b2db}"/>
+  </Record>
+  <Form gridHeight="7" gridWidth="72" name="form" text="Form">
+    <Grid gridHeight="5" gridWidth="70" name="day2db1" posX="1" posY="1">
+      <Label gridHeight="1" gridWidth="9" justify="left" name="person_id_label1" posX="1" posY="1">
+        <Initializer text="dbschema:person.id/@label"/>
+      </Label>
+      <Edit colName="id" fieldId="1" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="6" name="person.id" posX="11" posY="1" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+      </Edit>
+      <Label gridHeight="1" gridWidth="16" justify="left" name="person_first_name_label1" posX="32" posY="1">
+        <Initializer text="dbschema:person.first_name/@label"/>
+      </Label>
+      <Edit colName="first_name" fieldId="2" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="20" name="person.first_name" posX="49" posY="1" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+      </Edit>
+      <Label gridHeight="1" gridWidth="9" justify="left" name="person_last_name_label1" posX="1" posY="2">
+        <Initializer text="dbschema:person.last_name/@label"/>
+      </Label>
+      <Edit colName="last_name" fieldId="3" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="20" name="person.last_name" posX="11" posY="2" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+      </Edit>
+      <Label gridHeight="1" gridWidth="16" justify="left" name="person_alive_label1" posX="32" posY="2">
+        <Initializer text="dbschema:person.alive/@label"/>
+      </Label>
+      <Edit colName="alive" fieldId="4" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="1" name="person.alive" posX="49" posY="2" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+      </Edit>
+      <Label gridHeight="1" gridWidth="9" justify="left" name="person_birthdate_label1" posX="1" posY="3">
+        <Initializer text="dbschema:person.birthdate/@label"/>
+      </Label>
+      <Edit colName="birthdate" fieldId="5" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="10" name="person.birthdate" posX="11" posY="3" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+      </Edit>
+      <Label gridHeight="1" gridWidth="16" justify="left" name="person_height_in_inches_label1" posX="32" posY="3">
+        <Initializer text="dbschema:person.height_in_inches/@label"/>
+      </Label>
+      <Edit colName="height_in_inches" fieldId="6" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="7" name="person.height_in_inches" posX="49" posY="3" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+      </Edit>
+    </Grid>
+  </Form>
+  <DiagramLayout>
+    <![CDATA[AAAAAgAAAEwAewBiADkAYgA0AGQAOABlADQALQAwADEANwAxAC0ANABjAGMAYwAtAGEAMQA4AGIALQAyADgANQBlADIAOQBmAGQAZgAxAGMANgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==]]>
+  </DiagramLayout>
+</ManagedForm>

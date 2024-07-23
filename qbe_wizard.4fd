@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ManagedForm fileVersion="40100" gstVersion="50002" name="ManagedForm" uid="{f170ae2e-80df-455e-96ff-950ae72943f2}">
+  <AGSettings>
+    <DynamicProperties version="4"/>
+  </AGSettings>
+  <Record name="scr" uid="{ee9df66b-a23d-4ec8-95e7-1604827cca02}">
+    <RecordField colName="many" fieldIdRef="4" name="many" sqlTabName="formonly" uid="{24a1f30c-f5e0-4442-93ac-114a7356d77a}"/>
+  </Record>
+  <Record name="record1" uid="{6b7d628c-63a6-4e82-9564-382f58a749f5}">
+    <RecordField colName="criteria" fieldIdRef="0" name="criteria" sqlTabName="formonly" uid="{902a5e9b-0e0d-4a44-bb6e-68027a46409f}"/>
+    <RecordField colName="one" fieldIdRef="1" name="one" sqlTabName="formonly" uid="{073b37cb-0337-47df-94c0-6dcf5bac6dde}"/>
+    <RecordField colName="from" fieldIdRef="2" name="from" sqlTabName="formonly" uid="{37428efa-7ec7-4a15-8cfc-9b0119923023}"/>
+    <RecordField colName="to" fieldIdRef="3" name="to" sqlTabName="formonly" uid="{7db28ce7-bc70-40ba-8025-ed6fa1d44bd6}"/>
+  </Record>
+  <Form gridHeight="3" gridWidth="70" name="qbe_wizard" text="QBE Wizard">
+    <HBox gridHeight="3" gridWidth="70" name="hbox1" posX="0" posY="0">
+      <Grid gridHeight="3" gridWidth="20" name="grid1" posX="2" posY="0">
+        <Label gridHeight="1" gridWidth="9" name="label1" posX="1" posY="0" text="Criteria"/>
+        <ComboBox colName="criteria" fieldId="0" gridHeight="1" gridWidth="9" initializer="qbe_wizard.populate_criteria" items="" name="criteria" posX="11" posY="0" sqlTabName="formonly" tabIndex="1" widget="ComboBox"/>
+      </Grid>
+      <Grid gridHeight="3" gridWidth="11" hidden="true" name="grd_one" posX="22" posY="0">
+        <Edit colName="one" fieldId="1" gridHeight="1" gridWidth="10" name="one" placeholder="Enter value" posX="1" posY="0" scroll="true" sqlTabName="formonly" tabIndex="2" widget="Edit"/>
+      </Grid>
+      <Grid gridHeight="3" gridWidth="23" hidden="true" name="grd_range" posX="33" posY="0">
+        <Edit colName="from" fieldId="2" gridHeight="1" gridWidth="10" name="from" placeholder="Enter minimum value" posX="1" posY="0" scroll="true" sqlTabName="formonly" tabIndex="3" widget="Edit"/>
+        <Edit colName="to" fieldId="3" gridHeight="1" gridWidth="10" name="to" placeholder="Enter maximum value" posX="13" posY="0" scroll="true" sqlTabName="formonly" tabIndex="4" widget="Edit"/>
+      </Grid>
+      <Table gridHeight="3" gridWidth="12" hidden="true" name="grd_many" posX="56" posY="0" totalRows="1">
+        <Edit colName="many" fieldId="4" gridHeight="1" gridWidth="10" name="many" posX="0" posY="0" scroll="true" sqlTabName="formonly" tabIndex="5" widget="Edit"/>
+      </Table>
+    </HBox>
+  </Form>
+</ManagedForm>

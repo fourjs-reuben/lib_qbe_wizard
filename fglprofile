@@ -1,0 +1,2 @@
+dbi.database.day2db.source = "day2db.db"
+dbi.database.day2db.driver = "dbmsqt"
