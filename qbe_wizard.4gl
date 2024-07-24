@@ -13,6 +13,9 @@ FUNCTION wizard()
     #TODO consider writing this as ui.Dialog (generic)
     DIALOG ATTRIBUTES(UNBUFFERED)
         INPUT BY NAME rec.criteria ATTRIBUTES(WITHOUT DEFAULTS = TRUE)
+            ON CHANGE criteria
+                # TODO unhide container depending on criteria entered
+        
             AFTER INPUT
                 # TODO show/hide grids in form based on criteria value
         END INPUT
