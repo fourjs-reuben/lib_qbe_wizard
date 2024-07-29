@@ -8,11 +8,11 @@ SCHEMA day2db
 
 MAIN
     DEFINE where_clause STRING
+    DEFINE cancelled BOOLEAN
 
     CONNECT TO ":memory:+driver='dbmsqt'"
     CALL create_test_database()
     CALL populate_test_database()
-
     
     CLOSE WINDOW SCREEN
     OPEN WINDOW w1 WITH FORM "form1"
@@ -24,17 +24,24 @@ MAIN
             BEFORE CONSTRUCT
                 MESSAGE "Enter QBE Criteria, Press Ctrl-W for Field QBE Wizard"
         
-            ON ACTION wizard ATTRIBUTE(ACCELERATOR = "CONTROL-W", TEXT = "QBE Wizard") #TODO see if can change to Control-Q
+            ON ACTION wizard ATTRIBUTE(ACCELERATOR = "CONTROL-W", TEXT = "QBE Wizard") -- TODO see if can change to Control-Q
                 CALL FGL_DIALOG_SETBUFFER(NVL(qbe_wizard.wizard(), FGL_DIALOG_GETBUFFER()))
 
+            -- TODO remove from finished product
+            ON ACTION this_field ATTRIBUTE(TEXT="Debug (This field)")
+                DISPLAY "Via AUI Tree Datatype=", ui.Interface.getDocument().getElementById(ui.Interface.getRootNode().getAttribute("focus")).getAttribute("varType") #Why is it empty?
+                DISPLAY "Via AUI Tree name=", ui.Interface.getDocument().getElementById(ui.Interface.getRootNode().getAttribute("focus")).getAttribute("colName") #This works  
+            
             AFTER CONSTRUCT
                 IF int_flag THEN
                     EXIT CONSTRUCT
                 END IF
                 -- Add some tests here if required
         END CONSTRUCT
+        LET cancelled = int_flag
+        LET int_flag = 0
         
-        IF int_flag THEN
+        IF cancelled THEN
             MENU "Exit" ATTRIBUTES(COMMENT = "Exit Test Program?", STYLE = "dialog")
                 COMMAND "No"
                 COMMAND "Yes"
