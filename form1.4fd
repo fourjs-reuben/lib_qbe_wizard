@@ -3,7 +3,7 @@
   <AGSettings>
     <DynamicProperties version="4"/>
   </AGSettings>
-  <Record masterTable="person" name="record1" uid="{b9b4d8e4-0171-4ccc-a18b-285e29fdf1c6}">
+  <Record masterTable="person" name="scr_form" uid="{b9b4d8e4-0171-4ccc-a18b-285e29fdf1c6}">
     <RecordField colName="id" fieldIdRef="1" fieldType="TABLE_COLUMN" name="person.id" sqlTabName="person" uid="{53ffc9af-b185-4143-8ce7-504b9b439024}"/>
     <RecordField colName="first_name" fieldIdRef="2" fieldType="TABLE_COLUMN" name="person.first_name" sqlTabName="person" uid="{5e7628c9-cc32-4e0c-9eef-533ed63e18e3}"/>
     <RecordField colName="last_name" fieldIdRef="3" fieldType="TABLE_COLUMN" name="person.last_name" sqlTabName="person" uid="{ec42f8dc-b319-4ac2-b8f9-1ae83d8a68e6}"/>
@@ -11,47 +11,65 @@
     <RecordField colName="birthdate" fieldIdRef="5" fieldType="TABLE_COLUMN" name="person.birthdate" sqlTabName="person" uid="{6ea10c07-a34c-4024-b781-7f177ed5b721}"/>
     <RecordField colName="height_in_inches" fieldIdRef="6" fieldType="TABLE_COLUMN" name="person.height_in_inches" sqlTabName="person" uid="{fd87a692-6d78-4b0c-8b22-128171e9b2db}"/>
   </Record>
-  <Form gridHeight="7" gridWidth="72" name="form" text="Form">
-    <Grid gridHeight="5" gridWidth="70" name="day2db1" posX="1" posY="1">
-      <Label gridHeight="1" gridWidth="9" justify="left" name="person_id_label1" posX="1" posY="1">
-        <Initializer text="dbschema:person.id/@label"/>
-      </Label>
-      <Edit colName="id" fieldId="1" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="6" name="person.id" posX="11" posY="1" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
-        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
-      </Edit>
-      <Label gridHeight="1" gridWidth="16" justify="left" name="person_first_name_label1" posX="32" posY="1">
-        <Initializer text="dbschema:person.first_name/@label"/>
-      </Label>
-      <Edit colName="first_name" fieldId="2" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="20" name="person.first_name" posX="49" posY="1" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
-        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
-      </Edit>
-      <Label gridHeight="1" gridWidth="9" justify="left" name="person_last_name_label1" posX="1" posY="2">
-        <Initializer text="dbschema:person.last_name/@label"/>
-      </Label>
-      <Edit colName="last_name" fieldId="3" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="20" name="person.last_name" posX="11" posY="2" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
-        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
-      </Edit>
-      <Label gridHeight="1" gridWidth="16" justify="left" name="person_alive_label1" posX="32" posY="2">
-        <Initializer text="dbschema:person.alive/@label"/>
-      </Label>
-      <Edit colName="alive" fieldId="4" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="1" name="person.alive" posX="49" posY="2" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
-        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
-      </Edit>
-      <Label gridHeight="1" gridWidth="9" justify="left" name="person_birthdate_label1" posX="1" posY="3">
-        <Initializer text="dbschema:person.birthdate/@label"/>
-      </Label>
-      <Edit colName="birthdate" fieldId="5" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="10" name="person.birthdate" posX="11" posY="3" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
-        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
-      </Edit>
-      <Label gridHeight="1" gridWidth="16" justify="left" name="person_height_in_inches_label1" posX="32" posY="3">
-        <Initializer text="dbschema:person.height_in_inches/@label"/>
-      </Label>
-      <Edit colName="height_in_inches" fieldId="6" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="7" name="person.height_in_inches" posX="49" posY="3" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
-        <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
-      </Edit>
-    </Grid>
+  <Record name="scr_table" uid="{7186a94c-a7ca-4372-b212-00ec3cc105bf}">
+    <RecordField fieldIdRef="7" name="edit1" uid="{c5c2bc32-b378-42e6-9c49-ec73deb1d440}"/>
+    <RecordField fieldIdRef="8" name="edit2" uid="{7425d1b4-ae07-40bc-9bf0-1d248c6ae3be}"/>
+    <RecordField fieldIdRef="9" name="edit3" uid="{77bbd60b-582c-448d-8f14-3621e8786fb6}"/>
+    <RecordField fieldIdRef="10" name="edit4" uid="{83b222b5-38ad-4bc8-ab62-30e72d8e291d}"/>
+    <RecordField fieldIdRef="11" name="edit5" uid="{544e269f-6b99-4a53-94c2-e1dc731f3216}"/>
+    <RecordField fieldIdRef="12" name="edit6" uid="{aaad8814-d5c5-44e4-9a8d-1ebd38e625b7}"/>
+  </Record>
+  <Form gridHeight="13" gridWidth="65" name="form" text="Form">
+    <VBox gridHeight="13" gridWidth="61" name="vbox1" posX="1" posY="0">
+      <Grid gridHeight="5" gridWidth="61" name="day2db1" posX="0" posY="1">
+        <Label gridHeight="1" gridWidth="9" justify="left" name="person_id_label1" posX="1" posY="1" text="qbe-wizard-test.id">
+          <Initializer text="dbschema:person.id/@label"/>
+        </Label>
+        <Edit colName="id" fieldId="1" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="6" name="person.id" posX="11" posY="1" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+          <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+        </Edit>
+        <Label gridHeight="1" gridWidth="10" justify="left" name="person_first_name_label1" posX="36" posY="1" text="qbe-wizard-test.first_name">
+          <Initializer text="dbschema:person.first_name/@label"/>
+        </Label>
+        <Edit colName="first_name" fieldId="2" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="7" name="person.first_name" posX="47" posY="1" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+          <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+        </Edit>
+        <Label gridHeight="1" gridWidth="9" justify="left" name="person_last_name_label1" posX="1" posY="2" text="qbe-wizard-test.last_name">
+          <Initializer text="dbschema:person.last_name/@label"/>
+        </Label>
+        <Edit colName="last_name" fieldId="3" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="20" name="person.last_name" posX="11" posY="2" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+          <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+        </Edit>
+        <Label gridHeight="1" gridWidth="10" justify="left" name="person_alive_label1" posX="36" posY="2" text="qbe-wizard-test.alive">
+          <Initializer text="dbschema:person.alive/@label"/>
+        </Label>
+        <Edit colName="alive" fieldId="4" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="1" name="person.alive" posX="47" posY="2" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+          <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+        </Edit>
+        <Label gridHeight="1" gridWidth="9" justify="left" name="person_birthdate_label1" posX="1" posY="3" text="qbe-wizard-test.birthdate">
+          <Initializer text="dbschema:person.birthdate/@label"/>
+        </Label>
+        <Edit colName="birthdate" fieldId="5" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="10" name="person.birthdate" posX="11" posY="3" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+          <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+        </Edit>
+        <Label gridHeight="1" gridWidth="10" justify="left" name="person_height_in_inches_label1" posX="36" posY="3" text="qbe-wizard-test.height">
+          <Initializer text="dbschema:person.height_in_inches/@label"/>
+        </Label>
+        <Edit colName="height_in_inches" fieldId="6" fieldType="TABLE_COLUMN" gridHeight="1" gridWidth="7" name="person.height_in_inches" posX="47" posY="3" scroll="true" sqlTabName="person" tabIndex="-1" widget="Edit">
+          <Initializer title="dbschema:$(sqlTabName).$(colName)/@label"/>
+        </Edit>
+      </Grid>
+      <Table gridHeight="6" gridWidth="61" height="20" name="table1" posX="0" posY="6" stretchColumns-small="true" totalRows="5" unitHeight="pixels" unitWidth="pixels" width="50">
+        <Edit fieldId="7" gridHeight="1" gridWidth="8" justify="left" name="edit1" posX="0" posY="0" tabIndex="-1" title="ID" widget="Edit"/>
+        <Edit fieldId="8" gridHeight="1" gridWidth="8" justify="left" name="edit2" posX="8" posY="0" tabIndex="-1" title="First Name" widget="Edit"/>
+        <Edit fieldId="9" gridHeight="1" gridWidth="8" justify="left" name="edit3" posX="16" posY="0" tabIndex="-1" title="Last Name" widget="Edit"/>
+        <Edit fieldId="10" gridHeight="1" gridWidth="8" justify="left" name="edit4" posX="24" posY="0" tabIndex="-1" title="Alive" widget="Edit"/>
+        <Edit fieldId="11" gridHeight="1" gridWidth="8" justify="left" name="edit5" posX="32" posY="0" tabIndex="-1" title="Birthdate" widget="Edit"/>
+        <Edit fieldId="12" gridHeight="1" gridWidth="4" justify="left" name="edit6" posX="40" posY="0" tabIndex="-1" title="Height (Inches)" widget="Edit"/>
+      </Table>
+    </VBox>
   </Form>
   <DiagramLayout>
-    <![CDATA[AAAAAgAAAEwAewBiADkAYgA0AGQAOABlADQALQAwADEANwAxAC0ANABjAGMAYwAtAGEAMQA4AGIALQAyADgANQBlADIAOQBmAGQAZgAxAGMANgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==]]>
+    <![CDATA[AAAAAgAAAEwAewBiADkAYgA0AGQAOABlADQALQAwADEANwAxAC0ANABjAGMAYwAtAGEAMQA4AGIALQAyADgANQBlADIAOQBmAGQAZgAxAGMANgB9QGqqqqqqqqrAIcccccccbj+VgQYk3S8eAQAAAEwAewA3ADEAOAA2AGEAOQA0AGMALQBhADcAYwBhAC0ANAAzADcAMgAtAGIAMgAxADIALQAwADAAZQBjADMAYwBjADEAMAA1AGIAZgB9QFkAAAAAAABAWQAAAAAAAAAAAAAAAAAAAQ==]]>
   </DiagramLayout>
 </ManagedForm>

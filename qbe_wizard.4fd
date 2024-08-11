@@ -3,55 +3,99 @@
   <AGSettings>
     <DynamicProperties version="4"/>
   </AGSettings>
-  <Record name="scr" uid="{ee9df66b-a23d-4ec8-95e7-1604827cca02}">
-    <RecordField colName="many" fieldIdRef="4" name="many" sqlTabName="formonly" uid="{24a1f30c-f5e0-4442-93ac-114a7356d77a}"/>
+  <Record name="scr_many" uid="{ee9df66b-a23d-4ec8-95e7-1604827cca02}">
+    <RecordField colName="many" fieldIdRef="4" name="manystr" sqlTabName="formonly" uid="{24a1f30c-f5e0-4442-93ac-114a7356d77a}"/>
+    <RecordField colName="many" fieldIdRef="19" name="manynum" sqlTabName="formonly" sqlType="INTEGER" uid="{dac6ca23-6517-4235-acdc-91c3b9e57558}"/>
+    <RecordField colName="many" fieldIdRef="17" name="manyflt" sqlTabName="formonly" sqlType="FLOAT" uid="{d3deae46-21da-4cd4-bfa1-b36f522080e5}"/>
+    <RecordField colName="many" fieldIdRef="18" name="manydmy" sqlTabName="formonly" sqlType="DATE" uid="{33ca9024-c62b-4910-9b36-8ec96a0027e2}"/>
   </Record>
   <Record name="record1" uid="{6b7d628c-63a6-4e82-9564-382f58a749f5}">
-    <RecordField colName="criteria" fieldIdRef="0" name="criteria" sqlTabName="formonly" uid="{902a5e9b-0e0d-4a44-bb6e-68027a46409f}"/>
-    <RecordField colName="one" fieldIdRef="1" name="one" sqlTabName="formonly" uid="{073b37cb-0337-47df-94c0-6dcf5bac6dde}"/>
-    <RecordField colName="from" fieldIdRef="2" name="from" sqlTabName="formonly" uid="{37428efa-7ec7-4a15-8cfc-9b0119923023}"/>
-    <RecordField colName="to" fieldIdRef="3" name="to" sqlTabName="formonly" uid="{7db28ce7-bc70-40ba-8025-ed6fa1d44bd6}"/>
+    <RecordField colName="criteria" fieldIdRef="0" length="10" name="criteria" sqlTabName="formonly" uid="{902a5e9b-0e0d-4a44-bb6e-68027a46409f}"/>
   </Record>
-  <Form gridHeight="17" gridWidth="81" minHeight="15" minWidth="30" name="qbe_wizard" text="QBE Wizard">
-    <HBox gridHeight="17" gridWidth="81" name="hbox1" posX="0" posY="0">
-      <Group gridHeight="17" gridWidth="18" name="grp_criteria" posX="2" posY="0" text="Criteria">
+  <Record name="scr_like" uid="{ef3163b6-419b-4a20-a65a-5f91549ec5d4}">
+    <RecordField fieldIdRef="5" name="rule" uid="{014e718d-dc69-4ee9-8ae8-9c5a1895fb95}"/>
+    <RecordField fieldIdRef="6" name="value1" uid="{5d7e704e-b9e2-41c9-a7d1-f243a6945d4f}"/>
+    <RecordField fieldIdRef="7" name="value2" uid="{4a625db3-6802-4e48-a29d-daacbd8a4161}"/>
+  </Record>
+  <Record name="scr_from" uid="{2bba3674-db10-4da1-b36a-df82acb82069}">
+    <RecordField fieldIdRef="2" name="fromstr" uid="{718a168f-227e-4ccb-ba63-705ccead3ee6}"/>
+    <RecordField fieldIdRef="11" name="fromnum" sqlType="INTEGER" uid="{c6107797-0d58-4472-857d-082daa09e7a7}"/>
+    <RecordField fieldIdRef="12" name="fromflt" sqlType="FLOAT" uid="{30830b12-9e4c-4983-9fc7-33ca402be21c}"/>
+    <RecordField fieldIdRef="13" name="fromdmy" sqlType="DATE" uid="{22bde239-4d69-4809-b872-c26ae3a417db}"/>
+  </Record>
+  <Record name="scr_one" uid="{39dc13d7-b2c6-4063-a34f-9eb2445016fc}">
+    <RecordField colName="one" fieldIdRef="10" name="onestr" sqlTabName="formonly" sqlType="CHAR" uid="{e9b38adc-fe45-4758-bab3-6d454ef85e17}"/>
+    <RecordField colName="one" fieldIdRef="9" name="onenum" sqlTabName="formonly" sqlType="INTEGER" uid="{74772487-9c67-476a-8de1-6b2d0e9b5daa}"/>
+    <RecordField colName="one" fieldIdRef="8" name="oneflt" sqlTabName="formonly" sqlType="FLOAT" uid="{3865173d-7eae-4c96-951e-fecc297644c6}"/>
+    <RecordField colName="one" fieldIdRef="1" name="onedmy" sqlTabName="formonly" sqlType="DATE" uid="{ac0c2ab6-d6a6-4a3a-b647-6cbb21c3ef85}"/>
+  </Record>
+  <Record name="scr_to" uid="{789892b3-3dea-4472-bc2d-53d41a92be11}">
+    <RecordField fieldIdRef="3" name="tostr" uid="{70e19581-aafa-4880-a9ef-0a40b88c835c}"/>
+    <RecordField fieldIdRef="14" name="tonum" sqlType="INTEGER" uid="{9241edb0-eb2f-45cf-98d9-25f1ba6c649f}"/>
+    <RecordField fieldIdRef="15" name="toflt" sqlType="FLOAT" uid="{b0d74264-50b3-49fe-90ee-0ff539834bfa}"/>
+    <RecordField fieldIdRef="16" name="todmy" sqlType="DATE" uid="{2f0679a8-b441-4565-baef-7f9f919da999}"/>
+  </Record>
+  <Form gridHeight="17" gridWidth="174" minHeight="15" minWidth="30" name="qbe_wizard" text="QBE Wizard">
+    <HBox gridHeight="17" gridWidth="174" name="hbox1" posX="0" posY="0">
+      <Group gridHeight="17" gridWidth="18" lstrtext="true" name="grp_criteria" posX="2" posY="0" text="qbe-wizard-test.criteria">
         <Grid gridHeight="15" gridWidth="16" name="grid1" posX="1" posY="1">
-          <RadioGroup colName="criteria" columnCount="1" fieldId="0" gridHeight="15" gridWidth="15" items="Equal To (=), Less Than (&lt;), Less Than or Equal To (&lt;=), Greater Than (&gt;), Greater Than or Equal To (&gt;=), Begins With, Ends With, Contains, Between, In, Complex Criteria, Blank (is null), Populated (is not null)" name="criteria" notNull="true" orientation="vertical" posX="1" posY="0" repeat="false" rowCount="3" sqlTabName="formonly" stepX="1" stepY="1" tabIndex="1" widget="RadioGroup">
-            <Item lstrtext="false" name="eq" text="Equal To (=)"/>
-            <Item lstrtext="false" name="lt" text="Less Than (&lt;)"/>
-            <Item lstrtext="false" name="lte" text="Less Than or Equal To (&lt;=)"/>
-            <Item lstrtext="false" name="gt" text="Greater Than (&gt;)"/>
-            <Item lstrtext="false" name="gte" text="Greater Than or Equal To (&gt;=)"/>
-            <Item lstrtext="false" name="start" text="Begins With"/>
-            <Item lstrtext="false" name="end " text="Ends With"/>
-            <Item lstrtext="false" name="contains" text="Contains"/>
-            <Item lstrtext="false" name="between" text="Between"/>
-            <Item lstrtext="false" name="in" text="In"/>
-            <Item lstrtext="false" name="complex" text="Complex Criteria"/>
-            <Item lstrtext="false" name="isnull" text="Blank (is null)"/>
-            <Item lstrtext="false" name="isnotnull" text="Populated (is not null)"/>
+          <RadioGroup colName="criteria" columnCount="1" fieldId="0" gridHeight="15" gridWidth="15" items="qbe_wizard_test.equal, qbe_wizard_test.lt, qbe_wizard_test.lte, qbe_wizard_test.gt, qbe_wizard_test.gte, qbe_wizard_test.begins, qbe_wizard_test.contains, qbe_wizard_test.ends, qbe_wizard_test.between, qbe_wizard_test.in, qbe_wizard_test.complex, qbe_wizard_test.isnull, qbe_wizard_test.isnotnull" length="10" name="criteria" notNull="true" orientation="vertical" posX="1" posY="0" repeat="false" rowCount="3" sqlTabName="formonly" stepX="1" stepY="1" tabIndex="1" widget="RadioGroup">
+            <Item lstrtext="true" name="eq" text="qbe_wizard_test.equal"/>
+            <Item lstrtext="true" name="lt" text="qbe_wizard_test.lt"/>
+            <Item lstrtext="true" name="lte" text="qbe_wizard_test.lte"/>
+            <Item lstrtext="true" name="gt" text="qbe_wizard_test.gt"/>
+            <Item lstrtext="true" name="gte" text="qbe_wizard_test.gte"/>
+            <Item lstrtext="true" name="start" text="qbe_wizard_test.begins"/>
+            <Item lstrtext="true" name="contains" text="qbe_wizard_test.contains"/>
+            <Item lstrtext="true" name="end" text="qbe_wizard_test.ends"/>
+            <Item lstrtext="true" name="between" text="qbe_wizard_test.between"/>
+            <Item lstrtext="true" name="in" text="qbe_wizard_test.in"/>
+            <Item lstrtext="true" name="complex" text="qbe_wizard_test.complex"/>
+            <Item lstrtext="true" name="isnull" text="qbe_wizard_test.isnull"/>
+            <Item lstrtext="true" name="isnotnull" text="qbe_wizard_test.isnotnull"/>
           </RadioGroup>
         </Grid>
       </Group>
-      <Group gridHeight="17" gridWidth="17" name="grp_one" posX="20" posY="0" text="One Parameter">
+      <Group gridHeight="17" gridWidth="17" name="grp_one" posX="20" posY="0" text="qbe-wizard-test.oneparameter">
         <Grid gridHeight="15" gridWidth="15" name="grd_one" posX="1" posY="1">
-          <Edit colName="one" fieldId="1" gridHeight="1" gridWidth="10" hidden="false" name="one" placeholder="Enter value" posX="1" posY="0" scroll="true" sqlTabName="formonly" stretch="x" tabIndex="2" widget="Edit"/>
+          <Edit colName="one" fieldId="10" gridHeight="1" gridWidth="10" hidden="false" name="onestr" placeholder="qbe-wizard-test.singlevalue" posX="1" posY="0" scroll="true" sqlTabName="formonly" sqlType="CHAR" stretch="x" tabIndex="-1" widget="Edit"/>
+          <SpinEdit colName="one" fieldId="9" gridHeight="1" gridWidth="10" hidden="false" name="onenum" placeholder="qbe-wizard-test.singlevalue" posX="1" posY="1" scroll="true" sqlTabName="formonly" sqlType="INTEGER" stretch="x" tabIndex="-1" widget="SpinEdit"/>
+          <Edit colName="one" fieldId="8" gridHeight="1" gridWidth="10" hidden="false" name="oneflt" placeholder="qbe-wizard-test.singlevalue" posX="1" posY="2" scroll="true" sqlTabName="formonly" sqlType="FLOAT" stretch="x" tabIndex="-1" widget="Edit"/>
+          <DateEdit colName="one" fieldId="1" gridHeight="1" gridWidth="10" hidden="false" name="onedmy" placeholder="qbe-wizard-test.singlevalue" posX="1" posY="3" sqlTabName="formonly" sqlType="DATE" stretch="x" tabIndex="-1" widget="DateEdit"/>
         </Grid>
       </Group>
-      <Group gridHeight="17" gridWidth="25" name="grp_range" posX="37" posY="0" text="Two Parameters">
+      <Group gridHeight="17" gridWidth="25" name="grp_range" posX="37" posY="0" text="qbe-wizard-test.twoparameters">
         <Grid gridHeight="15" gridWidth="23" name="grd_range" posX="1" posY="1">
-          <Edit colName="from" fieldId="2" gridHeight="1" gridWidth="10" name="from" placeholder="Enter minimum value" posX="1" posY="0" scroll="true" sqlTabName="formonly" stretch="x" tabIndex="3" widget="Edit"/>
-          <Edit colName="to" fieldId="3" gridHeight="1" gridWidth="10" name="to" placeholder="Enter maximum value" posX="13" posY="0" scroll="true" sqlTabName="formonly" stretch="x" tabIndex="4" widget="Edit"/>
+          <Edit fieldId="2" gridHeight="1" gridWidth="10" name="fromstr" placeholder="qbe-wizard-test.minvalue" posX="1" posY="0" tabIndex="-1" title="edit1" widget="Edit"/>
+          <Edit fieldId="3" gridHeight="1" gridWidth="10" name="tostr" placeholder="qbe-wizard-test.maxvalue" posX="12" posY="0" tabIndex="-1" title="edit1" widget="Edit"/>
+          <SpinEdit fieldId="11" gridHeight="1" gridWidth="10" name="fromnum" placeholder="qbe-wizard-test.minvalue" posX="1" posY="1" sqlType="INTEGER" tabIndex="-1" title="edit1" widget="SpinEdit"/>
+          <SpinEdit fieldId="14" gridHeight="1" gridWidth="10" name="tonum" placeholder="qbe-wizard-test.maxvalue" posX="12" posY="1" sqlType="INTEGER" tabIndex="-1" title="edit1" widget="SpinEdit"/>
+          <Edit fieldId="12" gridHeight="1" gridWidth="10" name="fromflt" placeholder="qbe-wizard-test.minvalue" posX="1" posY="2" sqlType="FLOAT" tabIndex="-1" title="edit1" widget="Edit"/>
+          <Edit fieldId="15" gridHeight="1" gridWidth="10" name="toflt" placeholder="qbe-wizard-test.maxvalue" posX="12" posY="2" sqlType="FLOAT" tabIndex="-1" title="edit1" widget="Edit"/>
+          <DateEdit fieldId="13" gridHeight="1" gridWidth="10" name="fromdmy" placeholder="qbe-wizard-test.minvalue" posX="1" posY="3" sqlType="DATE" tabIndex="-1" title="edit1" widget="DateEdit"/>
+          <DateEdit fieldId="16" gridHeight="1" gridWidth="10" name="todmy" placeholder="qbe-wizard-test.maxvalue" posX="12" posY="3" sqlType="DATE" tabIndex="-1" title="edit1" widget="DateEdit"/>
         </Grid>
       </Group>
-      <Group gridHeight="17" gridWidth="17" name="grp_many" posX="62" posY="0" text="Many Parameters">
-        <Table gridHeight="15" gridWidth="15" name="tab_many" posX="1" posY="1" totalRows="1">
-          <Edit colName="many" fieldId="4" gridHeight="1" gridWidth="10" name="many" posX="0" posY="0" scroll="true" sqlTabName="formonly" stretch="x" tabIndex="5" widget="Edit"/>
+      <Group gridHeight="17" gridWidth="47" name="grp_many" posX="62" posY="0" text="qbe-wizard-test.manyparameters">
+        <Table gridHeight="15" gridWidth="45" name="tab_many" posX="1" posY="1" totalRows="1">
+          <Edit colName="many" fieldId="4" gridHeight="1" gridWidth="10" name="manystr" posX="0" posY="0" scroll="true" sqlTabName="formonly" stretch="x" tabIndex="2" widget="Edit"/>
+          <SpinEdit colName="many" fieldId="19" gridHeight="1" gridWidth="10" name="manynum" posX="10" posY="0" sqlTabName="formonly" sqlType="INTEGER" stretch="x" tabIndex="-1" widget="SpinEdit"/>
+          <Edit colName="many" fieldId="17" gridHeight="1" gridWidth="10" name="manyflt" posX="20" posY="0" scroll="true" sqlTabName="formonly" sqlType="FLOAT" stretch="x" tabIndex="-1" widget="Edit"/>
+          <DateEdit colName="many" fieldId="18" gridHeight="1" gridWidth="10" name="manydmy" posX="30" posY="0" sqlTabName="formonly" sqlType="DATE" stretch="x" tabIndex="-1" widget="DateEdit"/>
+        </Table>
+      </Group>
+      <Group gridHeight="17" gridWidth="63" name="grp_like" posX="109" posY="0" text="qbe-wizard-test.like">
+        <Table gridHeight="15" gridWidth="61" name="tab_like" posX="1" posY="1" totalRows="5">
+          <ComboBox fieldId="5" gridHeight="1" gridWidth="8" initializer="qbe_wizard.populate_rule" items="" name="rule" posX="0" posY="0" tabIndex="-1" title="qbe-wizard-test.rule" widget="ComboBox">
+            <Initializer initializer="qbe_wizard.populate_rule"/>
+          </ComboBox>
+          <Edit fieldId="6" gridHeight="1" gridWidth="8" name="value1" posX="8" posY="0" tabIndex="-1" title="qbe-wizard-test.value1" widget="Edit"/>
+          <Edit fieldId="7" gridHeight="1" gridWidth="8" name="value2" posX="16" posY="0" tabIndex="-1" title="qbe-wizard-test.value2" widget="Edit"/>
         </Table>
       </Group>
     </HBox>
   </Form>
   <DiagramLayout>
-    <![CDATA[AAAAAgAAAEwAewA2AGIANwBkADYAMgA4AGMALQA2ADMAYQA2AC0ANABlADgAMgAtADkANQA2ADQALQAzADgAMgBmADUAOABhADcANAA5AGYANQB9QCQAAAAAAABAJAAAAAAAAAAAAAAAAAAAAQAAAEwAewBlAGUAOQBkAGYANgA2AGIALQBhADIAMwBkAC0ANABlAGMAOAAtADkANQBlADcALQAxADYAMAA0ADgAMgA3AGMAYwBhADAAMgB9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ==]]>
+    <![CDATA[AAAAAgAAAEwAewBlAGUAOQBkAGYANgA2AGIALQBhADIAMwBkAC0ANABlAGMAOAAtADkANQBlADcALQAxADYAMAA0ADgAMgA3AGMAYwBhADAAMgB9QCoAAAAAAABAU0AAAAAAAD+vvnbItDlfAQAAAEwAewA3ADgAOQA4ADkAMgBiADMALQAzAGQAZQBhAC0ANAA0ADcAMgAtAGIAYwAyAGQALQA1ADMAZAA0ADEAYQA5ADIAYgBlADEAMQB9QIYgAAAAAABAcdAAAAAAAD+3Cj1wo9cPAQAAAEwAewAzADkAZABjADEAMwBkADcALQBiADIAYwA2AC0ANAAwADYAMwAtAGEAMwA0AGYALQA5AGUAYgAyADQANAA1ADAAMQA2AGYAYwB9QIUgAAAAAABAVQAAAAAAAD+pmZmZmZmfAQAAAEwAewAyAGIAYgBhADMANgA3ADQALQBkAGIAMQAwAC0ANABkAGEAMQAtAGIAMwA2AGEALQBkAGYAOAAyAGEAYwBiADgAMgAwADYAOQB9QHhgAAAAAABAZwAAAAAAAD+2yLQ5WBBnAQAAAEwAewBlAGYAMwAxADYAMwBiADYALQA0ADEAOQBiAC0ANABhADIAMAAtAGEANgA1AGEALQA1AGYAOQAxADUANAA5AGUAYwA1AGQANAB9QG2AAAAAAABASgAAAAAAAD9ok3S8an76AQAAAEwAewA2AGIANwBkADYAMgA4AGMALQA2ADMAYQA2AC0ANABlADgAMgAtADkANQA2ADQALQAzADgAMgBmADUAOABhADcANAA5AGYANQB9QGpAAAAAAABAcxAAAAAAAD+zdLxqfvnfAQ==]]>
   </DiagramLayout>
 </ManagedForm>

@@ -1,2 +1,4 @@
 dbi.database.day2db.source = "day2db.db"
 dbi.database.day2db.driver = "dbmsqt"
+fglrun.localization.file.count = 1
+fglrun.localization.file.1.name = "bin/qbe_wizard_test.42s"

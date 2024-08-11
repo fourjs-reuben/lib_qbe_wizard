@@ -1,19 +1,17 @@
 IMPORT FGL fgldialog
 IMPORT FGL qbe_wizard
-
 SCHEMA day2db
 
-    DEFINE person_rec RECORD LIKE person.*
-    DEFINE person_arr DYNAMIC ARRAY OF RECORD LIKE person.*
+DEFINE person_rec RECORD LIKE person.*
+DEFINE person_arr DYNAMIC ARRAY OF RECORD LIKE person.*
 
 MAIN
     DEFINE where_clause STRING
     DEFINE cancelled BOOLEAN
 
-    CONNECT TO ":memory:+driver='dbmsqt'"
-    CALL create_test_database()
-    CALL populate_test_database()
-    
+    --TODO, create an inmemory database so portable
+    CONNECT TO "day2db"
+
     CLOSE WINDOW SCREEN
     OPEN WINDOW w1 WITH FORM "form1"
 
@@ -21,17 +19,11 @@ MAIN
 
         LET int_flag = FALSE
         CONSTRUCT BY NAME where_clause ON person.*
-            BEFORE CONSTRUCT
-                MESSAGE "Enter QBE Criteria, Press Ctrl-W for Field QBE Wizard"
-        
-            ON ACTION wizard ATTRIBUTE(ACCELERATOR = "CONTROL-W", TEXT = "QBE Wizard") -- TODO see if can change to Control-Q
-                CALL FGL_DIALOG_SETBUFFER(NVL(qbe_wizard.wizard(), FGL_DIALOG_GETBUFFER()))
 
-            -- TODO remove from finished product
-            ON ACTION this_field ATTRIBUTE(TEXT="Debug (This field)")
-                DISPLAY "Via AUI Tree Datatype=", ui.Interface.getDocument().getElementById(ui.Interface.getRootNode().getAttribute("focus")).getAttribute("varType") #Why is it empty?
-                DISPLAY "Via AUI Tree name=", ui.Interface.getDocument().getElementById(ui.Interface.getRootNode().getAttribute("focus")).getAttribute("colName") #This works  
-            
+            BEFORE CONSTRUCT
+                MESSAGE %"qbe_wizard_test.ask_message"
+            ON ACTION wizard ATTRIBUTE(ACCELERATOR = "CONTROL-Q", TEXT = "QBE Wizard") #TODO see if can change to Control-Q
+                CALL fgl_dialog_setbuffer(NVL(qbe_wizard.wizard(), fgl_dialog_getbuffer()))
             AFTER CONSTRUCT
                 IF int_flag THEN
                     EXIT CONSTRUCT
@@ -40,21 +32,24 @@ MAIN
         END CONSTRUCT
         LET cancelled = int_flag
         LET int_flag = 0
+        DISPLAY where_clause
         
         IF cancelled THEN
-            MENU "Exit" ATTRIBUTES(COMMENT = "Exit Test Program?", STYLE = "dialog")
-                COMMAND "No"
-                COMMAND "Yes"
+            MENU "Exit" ATTRIBUTES(COMMENT = %"qbe_wizard_test.exit_program", STYLE = "dialog")
+                COMMAND %"qbe_wizard_test.no"
+                COMMAND %"qbe_wizard_test.yes"
                     EXIT PROGRAM 0
             END MENU
         ELSE
             IF populate_result(where_clause) THEN
-                -- TODO, move up to near CONSTRUCT and create a multi-dialog
-                DISPLAY ARRAY person_arr TO record1.* ATTRIBUTES(CANCEL=FALSE)
+                -- TODO, move up to near CONSTRUCT and create a multi-dialog                
+                DISPLAY ARRAY person_arr TO scr_table.* ATTRIBUTES(CANCEL = FALSE)
                     BEFORE DISPLAY
                         MESSAGE SFMT("%1 rows found.", person_arr.getLength())
                 END DISPLAY
-                CLEAR SCREEN ARRAY record1.*
+                LET int_flag = 0
+                CLEAR SCREEN ARRAY scr_form.*
+                CLEAR SCREEN ARRAY scr_table.*
             END IF
         END IF
     END WHILE
@@ -62,8 +57,8 @@ END MAIN
 
 FUNCTION populate_result(p_where_clause STRING)
     DEFINE sql_text STRING
-
     LET sql_text = "SELECT * FROM person WHERE " || p_where_clause || " ORDER BY id "
+    DISPLAY sql_text
     TRY
         DECLARE per_curs SCROLL CURSOR FROM sql_text
         CALL person_arr.clear()
@@ -76,29 +71,4 @@ FUNCTION populate_result(p_where_clause STRING)
         ERROR "SQL error: ", SQLERRMESSAGE
         RETURN FALSE
     END TRY
-END FUNCTION
-
-FUNCTION create_test_database()
-    EXECUTE IMMEDIATE "CREATE TABLE person (
-        id SMALLINT,
-        first_name CHAR(20),
-        last_name CHAR(20),
-        alive BOOLEAN,
-        birthdate DATE,
-        height_in_inches DECIMAL(5,2),
-        CONSTRAINT sqlite_autoindex_person_1 PRIMARY KEY(id))"
-END FUNCTION
-
-FUNCTION populate_test_database()
-
-    # Use this if not using bin folder
-    #  LOAD FROM "day2db.unl" INSERT INTO person
-
-    # use this if using bin folder to simplify (or else gets confusing is unl file in source or bin folder
-    INSERT INTO person VALUES(1,"Fred","Flintstone",0,"2004-10-10",50.20)
-    INSERT INTO person VALUES(2,"Barney","Rubble",1,"2004-09-09",40.30)
-    INSERT INTO person VALUES(3,"Wilmar","Flintstone",1,"2006-03-21",48.60)
-    INSERT INTO person VALUES(4,"Betty","Rubble",1,"2006-07-30",47.80)
-    INSERT INTO person VALUES(5,"George","Washington",1,"1732-02-22",74.00)
-    INSERT INTO person VALUES(6,"Mahima","Singh",1,"1732-02-22",134.00)
 END FUNCTION

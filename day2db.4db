@@ -1,32 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Schema gstVersion="50001" id="{777c45ed-b2bd-481f-8529-3c37684a3e9e}" version="4.0">
-  <AGSettings version="1.1">
-    <DynamicProperties version="4">
-      <DynamicProperty description="Associated label when generating form" initialValue="" isDefaultInherited="false" isHidden="false" label="Label" name="label" readOnly="false" type="TEXT"/>
-      <DynamicProperty description="Associated widget" editorInfo="contains:ButtonEdit|CheckBox|ComboBox|DateEdit|DateTimeEdit|Edit|FFImage|FFLabel|Field|Phantom|ProgressBar|RadioGroup|Slider|SpinEdit|TextEdit|TimeEdit" initialValue="Edit" isDefaultInherited="false" isHidden="false" label="Widget" name="widget" readOnly="false" type="ENUM"/>
-      <DynamicPropertyGroup collapsed="false" description="Formfield properties" label="Formfield" name="formfieldGroup" properties="label;widget"/>
-    </DynamicProperties>
-    <NodeInfos version="1">
-      <NodeInfo mimeType="db/column" properties="widget;label"/>
-    </NodeInfos>
-  </AGSettings>
+<?xml version='1.0' encoding='windows-1252'?>
+<Schema id="{2cd1ee26-44e0-4299-a38d-2789d2de1483}" version="4.0">
   <ExtractionSettings last="SQLite">
     <ExtractionOptions casens="LowerCase" cvmeth="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" ignerr="true" systab="false" type="SQLite"/>
   </ExtractionSettings>
-  <Table active="true" name="person" status="U" uuid="db/table6">
-    <Column fglLength="2" fglType="1" name="id" notNull="false" order="1" status="U" uuid="db/column26"/>
-    <Column fglLength="20" fglType="0" name="first_name" notNull="false" order="2" status="U" uuid="db/column28"/>
-    <Column fglLength="20" fglType="0" name="last_name" notNull="false" order="3" status="U" uuid="db/column30"/>
-    <Column fglLength="1" fglType="45" name="alive" notNull="false" order="4" status="U" uuid="db/column32"/>
-    <Column fglLength="4" fglType="7" name="birthdate" notNull="false" order="5" status="U" uuid="db/column34"/>
-    <Column fglLength="1282" fglType="5" name="height_in_inches" notNull="false" order="6" status="U" uuid="db/column36"/>
-    <Index indexColumns="id" indexConstraint="primaryKey" name="sqlite_autoindex_person_1" status="U" uuid="db/index6"/>
+  <Table name="person" isView="false" status="U">
+    <Column fglLength="2" fglType="1" name="id" notNull="false" order="1" status="U"/>
+    <Column fglLength="20" fglType="0" name="first_name" notNull="false" order="2" status="U"/>
+    <Column fglLength="20" fglType="0" name="last_name" notNull="false" order="3" status="U"/>
+    <Column fglLength="1" fglType="45" name="alive" notNull="false" order="4" status="U"/>
+    <Column fglLength="4" fglType="7" name="birthdate" notNull="false" order="5" status="U"/>
+    <Column fglLength="1282" fglType="5" name="height_in_inches" notNull="false" order="6" status="U"/>
+    <Index indexColumns="id" indexConstraint="primaryKey" name="sqlite_autoindex_person_1" status="U"/>
   </Table>
-  <Views ActiveView="View-1" showLabels="true">
-    <View Name="View-1">
-      <Layout>
-        <![CDATA[AAAAAgAAABIAZABiAC8AdABhAGIAbABlADYAAAAAAAAAAEA0AAAAAAAAAAAAAAAAAAAB]]>
-      </Layout>
-    </View>
-  </Views>
 </Schema>
